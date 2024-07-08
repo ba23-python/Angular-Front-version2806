@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -7,15 +7,15 @@ import { AuthService } from '../../../services/auth.service';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css'] // Corrected property name
 })
 export class NavbarComponent {
 
-  constructor(public authService: AuthService){
-  
+  constructor(public authService: AuthService, private router: Router) { // Inject Router
+
   }
 
-  logoof() {
+  logout() { // Corrected method name
     this.authService.deleteUser();
     this.router.navigateByUrl('');
   }
