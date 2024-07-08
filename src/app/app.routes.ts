@@ -8,10 +8,18 @@ import { MeComponent } from './pages/me/me.component';
 import { isLoggedInGuard } from './guards/is-logged-in.guard';
 import { MyBookingsComponent } from './pages/me/my-bookings/my-bookings.component';
 import { MyInfoComponent } from './pages/me/my-info/my-info.component';
+import { UsersComponent } from './pages/admin/users/users.component';
+import { BookingsComponent } from './pages/admin/bookings/bookings.component';
+import { VehiclesComponent } from './pages/admin/vehicles/vehicles.component'; 
 
 export const routes: Routes = [
     {
         path: "",
+        pathMatch:'full',
+        redirectTo: 'home'
+    },
+    {
+        path: "home",
         component: HomeComponent
     },
     {
@@ -27,6 +35,21 @@ export const routes: Routes = [
     {
         path: "rent/:id",
         component: RentComponent
+    },
+    {
+        path: "user",
+        component: UsersComponent,
+        canActivate: [isLoggedInGuard],
+    }, 
+    {
+        path: "bookings",
+        component: BookingsComponent,
+        canActivate: [isLoggedInGuard],
+    }, 
+    {
+        path: "vehicle",
+        component: VehiclesComponent,
+        canActivate: [isLoggedInGuard],
     },
     {
         path: "me",
