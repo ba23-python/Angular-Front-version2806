@@ -9,6 +9,7 @@ export const isLoggedInGuard: CanActivateFn = (route, state) => {
     return true
   }
   else{
+    router.navigateByUrl('home');
     return false
   }
   

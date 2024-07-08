@@ -14,4 +14,9 @@ export class NavbarComponent {
   constructor(public authService: AuthService){
   
   }
+
+  logoof() {
+    this.authService.deleteUser();
+    this.router.navigateByUrl('');
+  }
 }
