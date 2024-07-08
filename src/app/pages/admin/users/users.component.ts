@@ -61,7 +61,7 @@ export class UsersComponent {
   }
 
   deleteVehicle(id: string) {
-    const isDelete = confirm("¿Estás segura de que quieres eliminar?")
+    const isDelete = confirm("¿Estás seguro de que quieres eliminar?")
     if(isDelete) {
       this.service.delete(id).subscribe((res: any) => {
         if (res) {
