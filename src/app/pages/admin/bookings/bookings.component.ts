@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookingService } from '../../../services/booking.service';
 import { AuthService } from '../../../services/auth.service';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './bookings.component.html',
   styleUrl: './bookings.component.css'
 })
-export class BookingsComponent {
+export class BookingsComponent implements OnInit{
 
   bookings: any[] = [];
   bookingObj: any = {
@@ -28,7 +28,7 @@ export class BookingsComponent {
   constructor(private bookingService: BookingService, private authService: AuthService) {}
 
   ngOnInit(): void {
-    if(this.authService.user?.role == 'admin') {
+    if(this.authService.user?.role === 'admin') {
       this.getAllBooking();
     } else {
       this.getBookings();

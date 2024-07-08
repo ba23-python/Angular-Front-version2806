@@ -5,8 +5,8 @@ export interface Booking {
     _id: string
     user: User
     vehicle: Vehicle
-    startDate: string
-    endDate: string
+    startDate: Date;
+    endDate: Date;
     price: number
     discount: number
 }
